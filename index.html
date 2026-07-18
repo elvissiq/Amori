@@ -17,9 +17,10 @@
         header { background: #fff; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; z-index: 1000; }
         .header-main { max-width: 1300px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
         
-        /* Ajuste para usar sua Imagem de Logo Oficial */
+        /* Ajuste de tamanho da Logomarca Oficial */
         .logo-container { display: flex; align-items: center; gap: 10px; cursor: pointer; }
-        .logo-img { height: 50px; width: auto; object-fit: contain; }
+        .logo-img { height: 90px; width: auto; object-fit: contain; }
+        .logo-text { font-size: 24px; font-weight: 300; letter-spacing: 4px; color: #a38a75; font-family: Georgia, serif; }
 
         /* Menu de Navegação */
         .main-nav { display: flex; justify-content: center; background: #fff; border-bottom: 1px solid #f9f9f9; padding-bottom: 10px; flex-wrap: wrap; }
@@ -88,7 +89,7 @@
             .slide-overlay h2 { font-size: 28px; }
             .slide-overlay p { font-size: 13px; }
             .main-nav a { margin: 5px 10px; font-size: 11px; }
-            .logo-img { height: 40px; }
+            .logo-img { height: 60px; } /* Ajuste equilibrado para telas de celular */
         }
     </style>
 </head>
@@ -98,7 +99,7 @@
 
     <header>
         <div class="header-main">
-            <!-- Chamada da Imagem da Logo Oficial -->
+            <!-- Chamada da Imagem da Logo Oficial Ampliada -->
             <div class="logo-container" onclick="showPage('novidades')">
                 <img src="logo.png" alt="Amori Boutique" class="logo-img" onerror="this.style.display='none'; document.getElementById('alt-logo-text').style.display='block';">
                 <span id="alt-logo-text" class="logo-text" style="display:none;">AMORI</span>
@@ -121,10 +122,9 @@
     <main>
         <section class="slider-container" id="site-banner-slider">
             <div class="slider" id="main-slider">
-                <!-- Primeiro Slide com o novo Banner Solicitado -->
+                <!-- Primeiro Slide com o Banner Solicitado -->
                 <div class="slide" style="background-image: url('https://lojamorenarosa.vtexassets.com/assets/vtex.file-manager-graphql/images/c1e9b4e2-0f6c-4982-9081-26eafa504bb4___c1e1dd355c182d09fb04d8eb918b42d3.png')">
                     <div class="slide-overlay">
-                        <!-- Textos limpos para não obstruírem detalhes importantes do novo banner -->
                         <h2 style="color: #333; font-weight: 400;"></h2>
                         <p style="color: #333; font-weight: 400; text-shadow: none;"></p>
                     </div>
@@ -189,7 +189,6 @@
             { nome: "Vestido Midi Plissado Fluido", preco: 389.90, categoria: "Vestidos", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=500" },
             { nome: "Blusa Cachecoeur em Linho Pure", preco: 189.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=500" },
             { nome: "Calça Pantalona Alfaiataria Cinto", preco: 279.90, categoria: "Calças", img: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=500" },
-            // Imagem corrigida com link válido e estável
             { nome: "Vestido Estampado Seda Silky", preco: 459.00, categoria: "Vestidos", img: "https://images.unsplash.com/photo-1518622358385-8ea7d0794bf6?q=80&w=500" },
             { nome: "Camisa Ampla Algodão Egípcio", preco: 219.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=500" },
             { nome: "Calça Jeans Slouchy Denim Soft", preco: 249.90, categoria: "Calças", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=500" },
@@ -252,7 +251,7 @@
             }
             else if (page === 'marca') {
                 titleElement.textContent = "A Marca Amori";
-                contentElement.innerHTML = `<div class="text-page"><p>A <strong>Amori</strong> nasceu em 2026 com o propósito de vestir a força e a leveza da mulher contemporânea.</p><h3>Nossa Essência</h3><p>Buscamos despertar in cada cliente o desejo de celebrar sua própria identidade.</p></div>`;
+                contentElement.innerHTML = `<div class="text-page"><p>A <strong>Amori</strong> nasceu em 2026 com o propósito de vestir a força e a leveza da mulher contemporânea.</p><h3>Nossa Essência</h3><p>Buscamos despertar em cada cliente o desejo de celebrar sua própria identidade.</p></div>`;
             }
             else if (page === 'lojas') {
                 titleElement.textContent = "Nossas Lojas";
