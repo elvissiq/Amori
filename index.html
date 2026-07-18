@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amori | Boutique Feminina Oficial</title>
+    <style>
+        /* Reset e Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: #fafafa; color: #222; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; cursor: pointer; }
+        
+        /* Faixa de Aviso Superior */
+        .top-bar { background-color: #f3ece6; text-align: center; padding: 8px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #4a3e3d; }
+
+        /* Cabeçalho */
+        header { background: #fff; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; z-index: 1000; }
+        .header-main { max-width: 1300px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Ajuste para usar sua Imagem de Logo Oficial */
+        .logo-container { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        .logo-img { height: 50px; width: auto; object-fit: contain; }
+
+        /* Menu de Navegação */
+        .main-nav { display: flex; justify-content: center; background: #fff; border-bottom: 1px solid #f9f9f9; padding-bottom: 10px; flex-wrap: wrap; }
+        .main-nav a { margin: 5px 20px; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; color: #555; font-weight: 400; padding-bottom: 5px; }
+        .main-nav a.active { color: #a38a75; border-bottom: 2px solid #a38a75; }
+        .main-nav a.outlet-link { color: #b83b3b; }
+        .main-nav a.outlet-link.active { border-bottom: 2px solid #b83b3b; }
+
+        /* Carrossel de Banners */
+        .slider-container { position: relative; width: 100%; height: 550px; overflow: hidden; background: #eee; }
+        .slider { display: flex; width: 500%; height: 100%; transition: transform 0.8s ease-in-out; }
+        .slide { width: 20%; height: 100%; background-size: cover; background-position: center; position: relative; }
+        .slide-overlay { position: absolute; bottom: 80px; left: 10%; color: #fff; text-shadow: 1px 1px 10px rgba(0,0,0,0.4); right: 10%; }
+        .slide-overlay h2 { font-size: 42px; font-weight: 300; letter-spacing: 3px; margin-bottom: 10px; text-transform: uppercase; }
+        .slide-overlay p { font-size: 16px; letter-spacing: 1px; }
+        .slider-dots { position: absolute; bottom: 20px; width: 100%; display: flex; justify-content: center; gap: 10px; z-index: 10; }
+        .dot { width: 10px; height: 10px; background: rgba(250,250,250,0.5); border-radius: 50%; cursor: pointer; transition: 0.3s; }
+        .dot.active { background: #fff; transform: scale(1.2); }
+
+        /* Vitrines e Conteúdo */
+        .section-container { max-width: 1300px; margin: 50px auto; padding: 0 20px; min-height: 400px; }
+        .section-title { text-align: center; font-size: 22px; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 40px; color: #333; position: relative; }
+        .section-title::after { content: ''; display: block; width: 40px; height: 1px; background: #a38a75; margin: 10px auto 0; }
+
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 35px 25px; }
+        .product-card { background: #fff; border-radius: 0px; overflow: hidden; transition: 0.4s; position: relative; }
+        .product-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .product-img { width: 100%; height: 420px; background-size: cover; background-position: center; }
+        .product-info { padding: 20px 10px; text-align: center; }
+        .product-tag { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #a38a75; margin-bottom: 5px; font-weight: 600; }
+        .product-name { font-size: 15px; font-weight: 300; margin-bottom: 8px; color: #444; min-height: 40px; }
+        .product-price { font-size: 15px; font-weight: 600; color: #222; }
+        .product-old-price { font-size: 13px; color: #999; text-decoration: line-through; margin-right: 5px; }
+        .product-parcela { font-size: 12px; color: #888; margin-top: 4px; }
+
+        /* Estilo para Páginas de Texto (Institucional / Ajuda) */
+        .text-page { max-width: 800px; margin: 0 auto; background: #fff; padding: 40px; border: 1px solid #eee; line-height: 1.8; color: #444; }
+        .text-page h3 { margin: 25px 0 10px; font-weight: 400; color: #222; text-transform: uppercase; font-size: 16px; letter-spacing: 1px; }
+        .text-page p { margin-bottom: 15px; font-size: 15px; }
+
+        /* Área Administrativa */
+        .admin-section { background: #fff; padding: 40px; border: 1px solid #eaeaea; max-width: 600px; margin: 50px auto; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #555; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 1px solid #ddd; font-size: 14px; outline: none; }
+        .form-group input:focus { border-color: #a38a75; }
+        .btn { background: #333; color: #fff; border: none; padding: 14px; cursor: pointer; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; width: 100%; }
+        .btn:hover { background: #a38a75; }
+        .logout-btn { background: #a84343; margin-top: 15px; }
+
+        /* Rodapé */
+        footer { background: #fff; border-top: 1px solid #eee; padding: 60px 0 20px; margin-top: 100px; }
+        .footer-links { max-width: 1300px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
+        .footer-col h3 { font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; color: #333; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; font-size: 13px; color: #666; }
+        .footer-col ul li a:hover { color: #a38a75; padding-left: 5px; }
+        .selos-seguranca { display: flex; gap: 15px; margin-top: 15px; align-items: center; }
+        .selo { border: 1px solid #ddd; padding: 6px 12px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; color: #666; background: #fafafa; display: inline-block; }
+        .selo-green { color: #27ae60; border-color: #27ae60; }
+        .footer-bottom { max-width: 1300px; margin: 40px auto 0; padding: 20px; border-top: 1px solid #f0f0f0; text-align: center; font-size: 12px; color: #999; letter-spacing: 1px; }
+
+        /* Responsividade para Telas Menores (Celulares e Tablets) */
+        @media (max-width: 768px) {
+            .slider-container { height: 350px; }
+            .slide-overlay h2 { font-size: 28px; }
+            .slide-overlay p { font-size: 13px; }
+            .main-nav a { margin: 5px 10px; font-size: 11px; }
+            .logo-img { height: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">Frete Grátis em compras acima de R$ 499 • Parcelamento em até 6x sem juros</div>
+
+    <header>
+        <div class="header-main">
+            <!-- Chamada da Imagem da Logo Oficial -->
+            <div class="logo-container" onclick="showPage('novidades')">
+                <img src="logo.png" alt="Amori Boutique" class="logo-img" onerror="this.style.display='none'; document.getElementById('alt-logo-text').style.display='block';">
+                <span id="alt-logo-text" class="logo-text" style="display:none;">AMORI</span>
+            </div>
+            <div style="font-size: 13px; letter-spacing: 1px; color: #666;">
+                <a onclick="showPage('admin')">Painel de Controle</a>
+            </div>
+        </div>
+
+        <div class="main-nav">
+            <a id="nav-novidades" class="active" onclick="showPage('novidades')">Novidades</a>
+            <a id="nav-vestidos" onclick="showPage('vestidos')">Vestidos</a>
+            <a id="nav-blusas" onclick="showPage('blusas')">Blusas</a>
+            <a id="nav-calcas" onclick="showPage('calcas')">Calças</a>
+            <a id="nav-outlet" class="outlet-link" onclick="showPage('outlet')">Outlet</a>
+        </div>
+    </header>
+
+    <!-- CONTAINER DINÂMICO -->
+    <main>
+        <section class="slider-container" id="site-banner-slider">
+            <div class="slider" id="main-slider">
+                <div class="slide" style="background-image: url('https://lojamorenarosa.vtexassets.com/assets/vtex.file-manager-graphql/images/7328c29e-e80f-4ff1-8058-62b42a59401e___4947cc1efd1b6034d5985b6ac57e442a.png')">
+                    <div class="slide-overlay">
+                        <h2 style="color: #b83b3b; font-weight: 400;">Special Sale</h2>
+                        <p style="color: #333; font-weight: 400; text-shadow: none;">Até 50% OFF nas peças mais desejadas da temporada.</p>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1400')">
+                    <div class="slide-overlay"><h2>Alpino Chic</h2><p>Cortes alfaiataria com sofisticação moderna.</p></div>
+                </div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1400')">
+                    <div class="slide-overlay"><h2>Tons de Inverno</h2><p>A elegância dos tons neutros e terrosos.</p></div>
+                </div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1400')">
+                    <div class="slide-overlay"><h2>Vestidos Fluidos</h2><p>Movimento e exclusividade em estampas autorais.</p></div>
+                </div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1400')">
+                    <div class="slide-overlay"><h2>Preview Primavera</h2><p>Antecipe-se às tendências da temporada.</p></div>
+                </div>
+            </div>
+            <div class="slider-dots" id="slider-dots"></div>
+        </section>
+
+        <section class="section-container" id="content-area">
+            <h2 class="section-title" id="page-title">Lançamentos da Coleção</h2>
+            <div id="page-dynamic-content"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <div class="footer-col">
+                <h3>Institucional</h3>
+                <ul>
+                    <li><a onclick="showPage('marca')">A Marca Amori</a></li>
+                    <li><a onclick="showPage('lojas')">Nossas Lojas</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Ajuda e Suporte</h3>
+                <ul>
+                    <li><a onclick="showPage('trocas')">Trocas e Devoluções</a></li>
+                    <li><a onclick="showPage('prazos')">Prazos de Entrega</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Segurança e Privacidade</h3>
+                <p style="font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 10px;">
+                    Seus dados de pagamento e navegação são 100% protegidos por criptografia de ponta.
+                </p>
+                <div class="selos-seguranca">
+                    <span class="selo selo-green">✓ SSL Blindado</span>
+                    <span class="selo">✓ Compra Segura</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 AMORI BOUTIQUE - CNPJ 00.000.000/0001-00. Proibida reprodução total ou parcial.
+        </div>
+    </footer>
+
+    <script>
+        let produtos = [
+            { nome: "Vestido Midi Plissado Fluido", preco: 389.90, categoria: "Vestidos", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=500" },
+            { nome: "Blusa Cachecoeur em Linho Pure", preco: 189.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=500" },
+            { nome: "Calça Pantalona Alfaiataria Cinto", preco: 279.90, categoria: "Calças", img: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=500" },
+            { nome: "Vestido Estampado Seda Silky", preco: 459.00, categoria: "Vestidos", img: "https://images.unsplash.com/photo-1539008835657-9e8e62c8425b?q=80&w=500" },
+            { nome: "Camisa Ampla Algodão Egípcio", preco: 219.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=500" },
+            { nome: "Calça Jeans Slouchy Denim Soft", preco: 249.90, categoria: "Calças", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=500" },
+            { nome: "Blusa Gola Alta Tricot Canelado", preco: 159.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?q=80&w=500" },
+            { nome: "Vestido Loveliness Off-White", preco: 199.90, precoAntigo: 399.90, categoria: "Outlet", img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=500" }
+        ];
+
+        let usuarioAutenticado = false;
+        let currentSlide = 0;
+        const totalSlides = 5;
+
+        function setupSlider() {
+            const dotsContainer = document.getElementById('slider-dots');
+            dotsContainer.innerHTML = "";
+            for(let i=0; i<totalSlides; i++) {
+                dotsContainer.innerHTML += `<div class="dot ${i===0?'active':''}" onclick="goToSlide(${i})"></div>`;
+            }
+            setInterval(() => {
+                if (document.getElementById('site-banner-slider').style.display !== 'none') {
+                    let next = (currentSlide + 1) % totalSlides;
+                    goToSlide(next);
+                }
+            }, 4000);
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            document.getElementById('main-slider').style.transform = `translateX(-${index * 20}%)`;
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, idx) => dot.classList.toggle('active', idx === index));
+        }
+
+        function showPage(page) {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+            const navLinks = document.querySelectorAll('.main-nav a');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            const slider = document.getElementById('site-banner-slider');
+            slider.style.display = (page === 'novidades') ? 'block' : 'none';
+
+            const titleElement = document.getElementById('page-title');
+            const contentElement = document.getElementById('page-dynamic-content');
+
+            const activeNav = document.getElementById(`nav-${page}`);
+            if (activeNav) activeNav.classList.add('active');
+
+            if (page === 'novidades') {
+                titleElement.textContent = "Lançamentos da Coleção";
+                renderProductGrid(produtos);
+            } 
+            else if (['vestidos', 'blusas', 'calcas', 'outlet'].includes(page)) {
+                let categoriaFiltro = page.charAt(0).toUpperCase() + page.slice(1);
+                titleElement.textContent = categoriaFiltro;
+                let filtrados = produtos.filter(p => p.categoria.toLowerCase() === page);
+                renderProductGrid(filtrados);
+            } 
+            else if (page === 'admin') {
+                titleElement.textContent = "Painel Administrativo Restrito";
+                renderAdminArea();
+            }
+            else if (page === 'marca') {
+                titleElement.textContent = "A Marca Amori";
+                contentElement.innerHTML = `<div class="text-page"><p>A <strong>Amori</strong> nasceu em 2026 com o propósito de vestir a força e a leveza da mulher contemporânea.</p><h3>Nossa Essência</h3><p>Buscamos despertar em cada cliente o desejo de celebrar sua própria identidade.</p></div>`;
+            }
+            else if (page === 'lojas') {
+                titleElement.textContent = "Nossas Lojas";
+                contentElement.innerHTML = `<div class="text-page"><h3>Flagship Store</h3><p>Av. Paulista, 1500 - Jardins, São Paulo - SP</p></div>`;
+            }
+            else if (page === 'trocas') {
+                titleElement.textContent = "Políticas de Trocas e Devoluções";
+                contentElement.innerHTML = `<div class="text-page"><h3>Prazos</h3><p>Você pode solicitar a troca ou devolução em até 30 dias corridos.</p></div>`;
+            }
+            else if (page === 'prazos') {
+                titleElement.textContent = "Prazos de Entrega";
+                contentElement.innerHTML = `<div class="text-page"><h3>Envio Expresso</h3><p>As entregas levam de 2 a 4 dias úteis.</p></div>`;
+            }
+        }
+
+        function renderProductGrid(listaProdutos) {
+            const contentElement = document.getElementById('page-dynamic-content');
+            if (listaProdutos.length === 0) {
+                contentElement.innerHTML = "<p style='text-align:center; color:#999; padding: 40px;'>Nenhum item disponível.</p>";
+                return;
+            }
+
+            let html = `<div class="products-grid">`;
+            listaProdutos.forEach(prod => {
+                let precoFormatado = prod.preco.toFixed(2).replace('.', ',');
+                let parcelaFormatada = (prod.preco / 6).toFixed(2).replace('.', ',');
+                let precoHtml = `R$ ${precoFormatado}`;
+                if (prod.precoAntigo) {
+                    let antigoFormatado = prod.precoAntigo.toFixed(2).replace('.', ',');
+                    precoHtml = `<span class="product-old-price">R$ ${antigoFormatado}</span> <span style="color:#b83b3b;">R$ ${precoFormatado}</span>`;
+                }
+
+                html += `
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('${prod.img}')"></div>
+                        <div class="product-info">
+                            <div class="product-tag">Amori Premium</div>
+                            <div class="product-name">${prod.nome}</div>
+                            <div class="product-price">${precoHtml}</div>
+                            <div class="product-parcela">ou 6x de R$ ${parcelaFormatada} sem juros</div>
+                        </div>
+                    </div>`;
+            });
+            html += `</div>`;
+            contentElement.innerHTML = html;
+        }
+
+        function renderAdminArea() {
+            const contentElement = document.getElementById('page-dynamic-content');
+            if (!usuarioAutenticado) {
+                contentElement.innerHTML = `
+                    <div class="admin-section">
+                        <form onsubmit="handleLogin(event)">
+                            <div class="form-group"><label>E-mail Corporativo</label><input type="email" id="login-email" required placeholder="gerencia@amori.com"></div>
+                            <div class="form-group"><label>Senha de Segurança</label><input type="password" id="login-senha" required placeholder="••••••••"></div>
+                            <button type="submit" class="btn">Autenticar Login</button>
+                        </form>
+                    </div>`;
+            } else {
+                contentElement.innerHTML = `
+                    <div class="admin-section">
+                        <form onsubmit="handleCreateProduct(event)">
+                            <div class="form-group"><label>Nome Completo da Peça</label><input type="text" id="prod-nome" required></div>
+                            <div class="form-group"><label>Preço de Venda (R$)</label><input type="number" step="0.01" id="prod-preco" required></div>
+                            <div class="form-group"><label>URL da Foto da Imagem</label><input type="url" id="prod-img" required></div>
+                            <div class="form-group"><label>Categoria</label><select id="prod-categoria"><option value="Vestidos">Vestidos</option><option value="Blusas">Blusas</option><option value="Calças">Calças</option><option value="Outlet">Outlet</option></select></div>
+                            <button type="submit" class="btn">Publicar na Loja</button>
+                        </form>
+                        <button class="btn logout-btn" onclick="handleLogout()">Desconectar</button>
+                    </div>`;
+            }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            if (document.getElementById('login-email').value === "gerencia@amori.com" && document.getElementById('login-senha').value === "amori2026") {
+                usuarioAutenticado = true;
+                renderAdminArea();
+            } else {
+                alert("Credenciais incorretas.");
+            }
+        }
+
+        function handleLogout() { usuarioAutenticado = false; renderAdminArea(); }
+
+        function handleCreateProduct(event) {
+            event.preventDefault();
+            const cat = document.getElementById('prod-categoria').value;
+            produtos.unshift({
+                nome: document.getElementById('prod-nome').value,
+                preco: parseFloat(document.getElementById('prod-preco').value),
+                categoria: cat,
+                img: document.getElementById('prod-img').value
+            });
+            alert("Publicado!");
+            showPage(cat.toLowerCase());
+        }
+
+        window.onload = function() { setupSlider(); showPage('novidades'); };
+    </script>
+</body>
+</html>
