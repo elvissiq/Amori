@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amori | Moda Infanto-Juvenil e Teen Oficial</title>
+    <title>Amori | Moda Teen Feminina Oficial</title>
     
     <!-- Configuração do Favicon (Ícone na Guia do Navegador) -->
     <link rel="icon" type="image/png" href="logo.png">
@@ -34,12 +34,23 @@
         .main-nav a.outlet-link.active { border-bottom: 2px solid #b83b3b; }
 
         /* Carrossel de Banners */
-        .slider-container { position: relative; width: 100%; height: 550px; overflow: hidden; background: #eee; }
+        .slider-container { position: relative; width: 100%; height: 500px; overflow: hidden; background: #eee; }
         .slider { display: flex; width: 500%; height: 100%; transition: transform 0.8s ease-in-out; }
-        .slide { width: 20%; height: 100%; background-size: cover; background-position: center; position: relative; }
-        .slide-overlay { position: absolute; bottom: 80px; left: 10%; color: #fff; text-shadow: 1px 1px 10px rgba(0,0,0,0.4); right: 10%; }
-        .slide-overlay h2 { font-size: 42px; font-weight: 300; letter-spacing: 3px; margin-bottom: 10px; text-transform: uppercase; }
-        .slide-overlay p { font-size: 16px; letter-spacing: 1px; }
+        .slide { width: 20%; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 20px; }
+        
+        /* Estilizações de Fundo dos Banners Focados em Promoções */
+        .bg-promo1 { background: linear-gradient(135deg, #111 0%, #333 100%); }
+        .bg-promo2 { background: linear-gradient(135deg, #b83b3b 0%, #6e1e1e 100%); }
+        .bg-promo3 { background: linear-gradient(135deg, #a38a75 0%, #635041 100%); }
+        .bg-promo4 { background: linear-gradient(135deg, #222 0%, #444 100%); }
+        .bg-slide-img { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1400'); background-size: cover; background-position: center; }
+
+        .slide-content { max-width: 800px; }
+        .slide-content h2 { font-size: 56px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
+        .slide-content .highlight { color: #f3ece6; font-size: 64px; display: block; margin: 10px 0; font-weight: 800; }
+        .slide-content p { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; margin-bottom: 20px; }
+        .slide-badge { display: inline-block; background: #fff; color: #222; padding: 8px 20px; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; }
+
         .slider-dots { position: absolute; bottom: 20px; width: 100%; display: flex; justify-content: center; gap: 10px; z-index: 10; }
         .dot { width: 10px; height: 10px; background: rgba(250,250,250,0.5); border-radius: 50%; cursor: pointer; transition: 0.3s; }
         .dot.active { background: #fff; transform: scale(1.2); }
@@ -60,7 +71,7 @@
         .product-old-price { font-size: 13px; color: #999; text-decoration: line-through; margin-right: 5px; }
         .product-parcela { font-size: 12px; color: #888; margin-top: 4px; }
 
-        /* Estilo para Páginas de Texto (Institucional / Ajuda) */
+        /* Páginas Institucionais */
         .text-page { max-width: 800px; margin: 0 auto; background: #fff; padding: 40px; border: 1px solid #eee; line-height: 1.8; color: #444; }
         .text-page h3 { margin: 25px 0 10px; font-weight: 400; color: #222; text-transform: uppercase; font-size: 16px; letter-spacing: 1px; }
         .text-page p { margin-bottom: 15px; font-size: 15px; }
@@ -75,7 +86,7 @@
         .btn:hover { background: #a38a75; }
         .logout-btn { background: #a84343; margin-top: 15px; }
 
-        /* Botão Flutuante e Janela do WhatsApp */
+        /* WhatsApp */
         .whatsapp-wrapper { position: fixed; bottom: 30px; right: 30px; z-index: 9999; font-family: sans-serif; }
         .whatsapp-btn { background-color: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer; transition: 0.3s; }
         .whatsapp-btn:hover { transform: scale(1.1); }
@@ -97,8 +108,9 @@
         @media (max-width: 768px) {
             .logo-container { width: 180px; height: 85px; }
             .slider-container { height: 350px; }
-            .slide-overlay h2 { font-size: 28px; }
-            .slide-overlay p { font-size: 13px; }
+            .slide-content h2 { font-size: 32px; }
+            .slide-content .highlight { font-size: 38px; }
+            .slide-content p { font-size: 13px; }
             .main-nav a { margin: 5px 10px; font-size: 11px; }
             .whatsapp-wrapper { bottom: 20px; right: 20px; }
         }
@@ -131,31 +143,57 @@
     <main>
         <section class="slider-container" id="site-banner-slider">
             <div class="slider" id="main-slider">
-                <!-- Banners focados no estilo Streetwear / Juvenil / Beats -->
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=1400')">
-                    <div class="slide-overlay">
-                        <h2>Estilo Beats Urbano</h2>
-                        <p>A energia das ruas com o conforto que a nova geração exige.</p>
+                <!-- Slide 1: Promoção de Boas-vindas -->
+                <div class="slide bg-promo1">
+                    <div class="slide-content">
+                        <p>Welcome to Amori Beats</p>
+                        <h2>Ganhe Desconto na 1ª Compra</h2>
+                        <span class="highlight">10% OFF</span>
+                        <p>Use o cupom: <span class="slide-badge">AMORITEEN</span></p>
                     </div>
                 </div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1621452773781-0f992fd1f5cb?q=80&w=1400')">
-                    <div class="slide-overlay"><h2>Conexão Teen</h2><p>Peças exclusivas e cheias de atitude para o público infanto-juvenil.</p></div>
+                <!-- Slide 2: Liquidação de Outlet -->
+                <div class="slide bg-promo2">
+                    <div class="slide-content">
+                        <p>Temporada de Descontos</p>
+                        <h2>Mega Liquida Outlet</h2>
+                        <span class="highlight">Até 50% OFF</span>
+                        <p>Peças selecionadas com preços imperdíveis</p>
+                    </div>
                 </div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1400')">
-                    <div class="slide-overlay"><h2>Looks que Conectam</h2><p>Combinações perfeitas para arrasar no dia a dia ou nas redes sociais.</p></div>
+                <!-- Slide 3: Único slide com imagem de modelo teen + Dados de desconto -->
+                <div class="slide bg-slide-img">
+                    <div class="slide-content">
+                        <p>Coleção Streetwear Feminina</p>
+                        <h2>Estilo & Atitude</h2>
+                        <span class="highlight">Leve 3, Pague 2</span>
+                        <p>Em toda a categoria de blusas e croppeds</p>
+                    </div>
                 </div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1571210862729-78a52d3779a2?q=80&w=1400')">
-                    <div class="slide-overlay"><h2>Expressão Livre</h2><p>Moda autêntica feita para quem dita o próprio ritmo.</p></div>
+                <!-- Slide 4: Parcelamento facilitado -->
+                <div class="slide bg-promo3">
+                    <div class="slide-content">
+                        <p>Facilidade Amori</p>
+                        <h2>Renove seu Guarda-Roupa</h2>
+                        <span class="highlight">6x Sem Juros</span>
+                        <p>Parcelas mínimas de apenas R$ 30,00</p>
+                    </div>
                 </div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1565439386782-981f3b135b85?q=80&w=1400')">
-                    <div class="slide-overlay"><h2>Preview Streetwear</h2><p>Garanta as novidades mais hypadas da estação.</p></div>
+                <!-- Slide 5: Condição de Frete Grátis -->
+                <div class="slide bg-promo4">
+                    <div class="slide-content">
+                        <p>Vantagem Exclusiva</p>
+                        <h2>Frete Grátis</h2>
+                        <span class="highlight">Para Todo o Brasil</span>
+                        <p>Nas compras acima de R$ 499,00</p>
+                    </div>
                 </div>
             </div>
             <div class="slider-dots" id="slider-dots"></div>
         </section>
 
         <section class="section-container" id="content-area">
-            <h2 class="section-title" id="page-title">Lançamentos da Coleção</h2>
+            <h2 class="section-title" id="page-title">Lançamentos Teen Femininos</h2>
             <div id="page-dynamic-content"></div>
         </section>
     </main>
@@ -186,7 +224,7 @@
         </div>
         <div class="whatsapp-btn" onclick="toggleWhatsAppBox()">
             <svg viewBox="0 0 32 32">
-                <path d="M16 2a13 13 0 0 0-11.27 19.49L3 29l7.73-2A13 13 0 1 0 16 2zm0 24a11 11 0 0 1-5.61-1.54l-.4-.24-4.57 1.2 1.22-4.46-.26-.41A11 11 0 1 1 16 26zm6.36-8.6c-.35-.18-2.07-1-2.39-1.12s-.55-.18-.78.15-1 1.21-1.22 1.44-.43.26-.78.08a9.81 9.81 0 0 1-2.88-1.78 10.83 10.83 0 0 1-2-2.48c-.22-.38 0-.58.16-.76s.35-.41.52-.62a2.33 2.33 0 0 0 .35-.58.64.64 0 0 0 0-.58c-.09-.18-.78-1.88-1.07-2.57s-.57-.58-.78-.59h-.67a1.29 1.29 0 0 0-.93.43 3.93 3.93 0 0 0-1.22 2.92 6.84 6.84 0 0 0 1.43 3.64 15.63 15.63 0 0 0 6 5.31c1.32.53 2.63.59 3.59.45a3 3 0 0 0 2-1.39 2.45 2.45 0 0 0 .17-1.39c-.09-.15-.33-.24-.68-.42z"/>
+                <path d="M16 2a13 13 0 0 0-11.27 19.49L3 29l7.73-2A13 13 0 1 0 16 2zm0 24a11 11 0 0 1-5.61-1.54l-.4-.24-4.57 1.2 1.22-4.46-.26-.41A11 11 0 1 1 16 26zm6.36-8.6c-.35-.18-2.07-1-2.39-1.12s-.55-.18-.78.15-1 1.21-1.22 1.44-.43.26-.78.08a9.81 9.81 0 0 1-2.88-1.78 10.83 10.83 0 0 1-2-2.48c-.22-.38 0-.58.16-.76s.35-.41.52-.62a2.33 2.33 0 0 0 .35-.58.64.64 0 0 0 0-.58c-.09-.18-.78-1.88-1.07-2.57s-.57-.58-.78-.59h-.67a1.29 1.29 0 0 0-.93.43 3.93 3.93 0 0 0-1.22 2.92 6.84 6.84 0 0 0 1.43 3.64 15.63 15.63 0 0 0 6 5.31c1.32.53(2.63.59 3.59.45a3 3 0 0 0 2-1.39 2.45 2.45 0 0 0 .17-1.39c-.09-.15-.33-.24-.68-.42z"/>
             </svg>
         </div>
     </div>
@@ -224,16 +262,16 @@
     </footer>
 
     <script>
-        // Banco de Dados de Produtos atualizado para o segmento Teen / Infanto-Juvenil
+        // Banco de Dados focado estritamente em Roupas Juvenis / Adolescentes Femininas
         let produtos = [
-            { nome: "Vestido Juvenil Canelado Urban Beats", preco: 159.90, categoria: "Vestidos", img: "https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=500" },
-            { nome: "Blusa Moletom Cropped Com Capuz Street", preco: 119.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=500" },
-            { nome: "Calça Cargo Jogger Sarja Over", preco: 179.90, categoria: "Calças", img: "https://images.unsplash.com/photo-1517462964-21fdcec3f25b?q=80&w=500" },
-            { nome: "Vestido Teen Jeans Soft Alças", preco: 189.00, categoria: "Vestidos", img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?q=80&w=500" },
-            { nome: "Camiseta Oversized Estampa Digital Beats", preco: 89.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1503443207922-dff7d543fd0e?q=80&w=500" },
-            { nome: "Calça Wide Leg Jeans Detonada", preco: 169.90, categoria: "Calças", img: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=500" },
-            { nome: "Blusa Canelada Gola Alta Básica Teen", preco: 69.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=500" },
-            { nome: "Vestido Loveliness Teen Off-White", preco: 119.90, precoAntigo: 239.90, categoria: "Outlet", img: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?q=80&w=500" }
+            { nome: "Vestido Midi Canelado Teen Estampa Lateral", preco: 149.90, categoria: "Vestidos", img: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?q=80&w=500" },
+            { nome: "Cropped Moletom Confort Amori Beats", preco: 98.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=500" },
+            { nome: "Calça Wide Leg Jeans Girl Lavagem Clara", preco: 169.90, categoria: "Calças", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=500" },
+            { nome: "Vestido Curto Urban Alcinhas Reguláveis", preco: 129.90, categoria: "Vestidos", img: "https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?q=80&w=500" },
+            { nome: "T-Shirt Oversized Estampa College Street", preco: 79.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1503443207922-dff7d543fd0e?q=80&w=500" },
+            { nome: "Calça Cargo Jogger Sarja Soft Teen", preco: 159.90, categoria: "Calças", img: "https://images.unsplash.com/photo-1517462964-21fdcec3f25b?q=80&w=500" },
+            { nome: "Blusa Canelada Gola Alta Básica Beats", preco: 64.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=500" },
+            { nome: "Vestido Moletom Com Capuz Streetwear", preco: 109.90, precoAntigo: 219.90, categoria: "Outlet", img: "https://images.unsplash.com/photo-1564585299999-159fe9cd2742?q=80&w=500" }
         ];
 
         let usuarioAutenticado = false;
@@ -286,7 +324,7 @@
             } 
             else if (['vestidos', 'blusas', 'calcas', 'outlet'].includes(page)) {
                 let categoriaFiltro = page.charAt(0).toUpperCase() + page.slice(1);
-                titleElement.textContent = categoriaFiltro + " Juvenil";
+                titleElement.textContent = categoriaFiltro + " Teen";
                 let filtrados = produtos.filter(p => p.categoria.toLowerCase() === page);
                 renderProductGrid(filtrados);
             } 
@@ -296,7 +334,7 @@
             }
             else if (page === 'marca') {
                 titleElement.textContent = "A Marca Amori";
-                contentElement.innerHTML = `<div class="text-page"><p>A <strong>Amori</strong> nasceu com o propósito de vestir a atitude, o dinamismo e a autenticidade da geração infanto-juvenil e adolescente.</p><h3>Nossa Proposta</h3><p>Estilo urbano, confortável e cheio de energia para expressar a sua própria voz.</p></div>`;
+                contentElement.innerHTML = `<div class="text-page"><p>A <strong>Amori</strong> nasceu para vestir a autenticidade, o estilo e a atitude das adolescentes e do público juvenil feminino.</p><h3>Nossa Proposta</h3><p>Peças que combinam conforto urbano com as maiores tendências do streetwear.</p></div>`;
             }
             else if (page === 'lojas') {
                 titleElement.textContent = "Nossas Lojas";
@@ -337,7 +375,7 @@
                     <div class="product-card">
                         <div class="product-img" style="background-image: url('${prod.img}')"></div>
                         <div class="product-info">
-                            <div class="product-tag">Amori Beats</div>
+                            <div class="product-tag">Amori Teen</div>
                             <div class="product-name">${prod.nome}</div>
                             <div class="product-price">${precoHtml}</div>
                             <div class="product-parcela">ou 6x de R$ ${parcelaFormatada} sem juros</div>
@@ -363,7 +401,7 @@
                 contentElement.innerHTML = `
                     <div class="admin-section">
                         <form onsubmit="handleCreateProduct(event)">
-                            <div class="form-group"><label>Nome da Peça Juvenil</label><input type="text" id="prod-nome" required></div>
+                            <div class="form-group"><label>Nome da Peça Teen</label><input type="text" id="prod-nome" required></div>
                             <div class="form-group"><label>Preço de Venda (R$)</label><input type="number" step="0.01" id="prod-preco" required></div>
                             <div class="form-group"><label>URL da Imagem</label><input type="url" id="prod-img" required></div>
                             <div class="form-group"><label>Categoria</label><select id="prod-categoria"><option value="Vestidos">Vestidos</option><option value="Blusas">Blusas</option><option value="Calças">Calças</option><option value="Outlet">Outlet</option></select></div>
