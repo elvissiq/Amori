@@ -104,7 +104,7 @@
         .contact-info h5 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
         .contact-info p { font-size: 11px; color: #777; }
 
-        /* Correção e Ajuste Estrutural do Rodapé */
+        /* Estrutura do Rodapé */
         footer { background: #fff; border-top: 1px solid #eaeaea; padding: 60px 0 30px; margin-top: 80px; width: 100%; display: block; clear: both; }
         .footer-links { max-width: 1300px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
         .footer-col { display: flex; flex-direction: column; }
@@ -244,7 +244,7 @@
         </div>
     </div>
 
-    <!-- Rodapé Corrigido -->
+    <!-- Rodapé -->
     <footer>
         <div class="footer-links">
             <div class="footer-col">
@@ -278,15 +278,17 @@
     </footer>
 
     <script>
+        // Banco de Dados focado estritamente em Roupas Juvenis / Adolescentes Femininas
         let produtos = [
-            { nome: "Vestido Midi Canelado Teen Estampa Lateral", preco: 149.90, categoria: "Vestidos", img: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?q=80&w=500" },
+            { nome: "Vestido Midi Canelado Teen Estampa Lateral", preco: 149.90, categoria: "Vestidos", img: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=500" },
             { nome: "Cropped Moletom Confort Amori Beats", preco: 98.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=500" },
             { nome: "Calça Wide Leg Jeans Girl Lavagem Clara", preco: 169.90, categoria: "Calças", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=500" },
             { nome: "Vestido Curto Urban Alcinhas Reguláveis", preco: 129.90, categoria: "Vestidos", img: "https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?q=80&w=500" },
-            { nome: "T-Shirt Oversized Estampa College Street", preco: 79.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1503443207922-dff7d543fd0e?q=80&w=500" },
+            { nome: "T-Shirt Oversized Estampa College Street", preco: 79.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?q=80&w=500" },
             { nome: "Calça Cargo Jogger Sarja Soft Teen", preco: 159.90, categoria: "Calças", img: "https://images.unsplash.com/photo-1517462964-21fdcec3f25b?q=80&w=500" },
-            { nome: "Blusa Canelada Gola Alta Básica Beats", preco: 64.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=500" },
-            { nome: "Vestido Moletom Com Capuz Streetwear", preco: 109.90, precoAntigo: 219.90, categoria: "Outlet", img: "https://images.unsplash.com/photo-1564585299999-159fe9cd2742?q=80&w=500" }
+            { nome: "Blusa Canelada Gola Alta Básica Beats", preco: 64.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=500" },
+            // Link de imagem corrigido para o Vestido Moletom Com Capuz Streetwear
+            { nome: "Vestido Moletom Com Capuz Streetwear", preco: 109.90, precoAntigo: 219.90, categoria: "Outlet", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=500" }
         ];
 
         let usuarioAutenticado = false;
