@@ -21,9 +21,9 @@
         header { background: #fff; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; z-index: 1000; }
         .header-main { max-width: 1300px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
         
-        /* Ajuste de tamanho da Logomarca Oficial */
-        .logo-container { display: flex; align-items: center; gap: 10px; cursor: pointer; }
-        .logo-img { height: 90px; width: auto; object-fit: contain; }
+        /* Ampliação da Área da Logomarca para Preencher o Espaço Lateral */
+        .logo-container { display: flex; align-items: center; justify-content: flex-start; cursor: pointer; width: 320px; height: 150px; }
+        .logo-img { height: 100%; width: 100%; object-fit: contain; object-position: left center; }
         .logo-text { font-size: 24px; font-weight: 300; letter-spacing: 4px; color: #a38a75; font-family: Georgia, serif; }
 
         /* Menu de Navegação */
@@ -89,11 +89,11 @@
 
         /* Responsividade para Telas Menores (Celulares e Tablets) */
         @media (max-width: 768px) {
+            .logo-container { width: 180px; height: 85px; }
             .slider-container { height: 350px; }
             .slide-overlay h2 { font-size: 28px; }
             .slide-overlay p { font-size: 13px; }
             .main-nav a { margin: 5px 10px; font-size: 11px; }
-            .logo-img { height: 60px; }
         }
     </style>
 </head>
@@ -103,6 +103,7 @@
 
     <header>
         <div class="header-main">
+            <!-- Container Ampliado para a Logomarca -->
             <div class="logo-container" onclick="showPage('novidades')">
                 <img src="logo.png" alt="Amori Boutique" class="logo-img" onerror="this.style.display='none'; document.getElementById('alt-logo-text').style.display='block';">
                 <span id="alt-logo-text" class="logo-text" style="display:none;">AMORI</span>
@@ -171,7 +172,7 @@
             <div class="footer-col">
                 <h3>Segurança e Privacidade</h3>
                 <p style="font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 10px;">
-                    Seus dados de pagamento e navegação são 100% protegidos por criptografia de ponta.
+                    Seus dados de pagamento e navigation são 100% protegidos por criptografia de ponta.
                 </p>
                 <div class="selos-seguranca">
                     <span class="selo selo-green">✓ SSL Blindado</span>
@@ -185,6 +186,7 @@
     </footer>
 
     <script>
+        // Banco de Dados Centralizado de Produtos
         let produtos = [
             { nome: "Vestido Midi Plissado Fluido", preco: 389.90, category: "Vestidos", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=500", categoria: "Vestidos" },
             { nome: "Blusa Cachecoeur em Linho Pure", preco: 189.90, category: "Blusas", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=500", categoria: "Blusas" },
@@ -253,9 +255,14 @@
                 titleElement.textContent = "A Marca Amori";
                 contentElement.innerHTML = `<div class="text-page"><p>A <strong>Amori</strong> nasceu em 2026 com o propósito de vestir a força e a leveza da mulher contemporânea.</p><h3>Nossa Essência</h3><p>Buscamos despertar em cada cliente o desejo de celebrar sua própria identidade.</p></div>`;
             }
+            // Endereço e Nome da Loja Atualizados
             else if (page === 'lojas') {
                 titleElement.textContent = "Nossas Lojas";
-                contentElement.innerHTML = `<div class="text-page"><h3>Flagship Store</h3><p>Av. Paulista, 1500 - Jardins, São Paulo - SP</p></div>`;
+                contentElement.innerHTML = `
+                    <div class="text-page">
+                        <h3>Amori Matriz</h3>
+                        <p>Estrada de Belém, 230 - Campo Grande, Recife - PE</p>
+                    </div>`;
             }
             else if (page === 'trocas') {
                 titleElement.textContent = "Políticas de Trocas e Devoluções";
