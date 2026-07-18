@@ -104,6 +104,20 @@
         .contact-info h5 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
         .contact-info p { font-size: 11px; color: #777; }
 
+        /* Correção e Ajuste Estrutural do Rodapé */
+        footer { background: #fff; border-top: 1px solid #eaeaea; padding: 60px 0 30px; margin-top: 80px; width: 100%; display: block; clear: both; }
+        .footer-links { max-width: 1300px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .footer-col { display: flex; flex-direction: column; }
+        .footer-col h3 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; color: #222; }
+        .footer-col ul { list-style: none; padding: 0; margin: 0; }
+        .footer-col ul li { margin-bottom: 12px; font-size: 13px; color: #555; }
+        .footer-col ul li a { cursor: pointer; transition: 0.2s; }
+        .footer-col ul li a:hover { color: #a38a75; }
+        .selos-seguranca { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .selo { border: 1px solid #ddd; padding: 6px 12px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; color: #666; background: #fafafa; display: inline-block; }
+        .selo-green { color: #27ae60; border-color: #27ae60; }
+        .footer-bottom { max-width: 1300px; margin: 40px auto 0; padding: 20px 20px 0; border-top: 1px solid #f0f0f0; text-align: center; font-size: 12px; color: #888; letter-spacing: 1px; }
+
         /* Responsividade */
         @media (max-width: 768px) {
             .logo-container { width: 180px; height: 85px; }
@@ -113,6 +127,7 @@
             .slide-content p { font-size: 13px; }
             .main-nav a { margin: 5px 10px; font-size: 11px; }
             .whatsapp-wrapper { bottom: 20px; right: 20px; }
+            .footer-links { grid-template-columns: 1fr; gap: 30px; }
         }
     </style>
 </head>
@@ -229,6 +244,7 @@
         </div>
     </div>
 
+    <!-- Rodapé Corrigido -->
     <footer>
         <div class="footer-links">
             <div class="footer-col">
@@ -247,7 +263,7 @@
             </div>
             <div class="footer-col">
                 <h3>Segurança e Privacidade</h3>
-                <p style="font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 10px;">
+                <p style="font-size: 13px; color: #555; line-height: 1.6; margin-bottom: 10px;">
                     Seus dados de pagamento e navegação são 100% protegidos por segurança de ponta.
                 </p>
                 <div class="selos-seguranca">
@@ -262,7 +278,6 @@
     </footer>
 
     <script>
-        // Banco de Dados focado estritamente em Roupas Juvenis / Adolescentes Femininas
         let produtos = [
             { nome: "Vestido Midi Canelado Teen Estampa Lateral", preco: 149.90, categoria: "Vestidos", img: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?q=80&w=500" },
             { nome: "Cropped Moletom Confort Amori Beats", preco: 98.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=500" },
