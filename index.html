@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amori | Boutique Feminina Oficial</title>
+    <title>Amori | Moda Infanto-Juvenil e Teen Oficial</title>
     
     <!-- Configuração do Favicon (Ícone na Guia do Navegador) -->
     <link rel="icon" type="image/png" href="logo.png">
@@ -93,19 +93,7 @@
         .contact-info h5 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
         .contact-info p { font-size: 11px; color: #777; }
 
-        /* Rodapé */
-        footer { background: #fff; border-top: 1px solid #eee; padding: 60px 0 20px; margin-top: 100px; }
-        .footer-links { max-width: 1300px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
-        .footer-col h3 { font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; color: #333; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; font-size: 13px; color: #666; }
-        .footer-col ul li a:hover { color: #a38a75; padding-left: 5px; }
-        .selos-seguranca { display: flex; gap: 15px; margin-top: 15px; align-items: center; }
-        .selo { border: 1px solid #ddd; padding: 6px 12px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; color: #666; background: #fafafa; display: inline-block; }
-        .selo-green { color: #27ae60; border-color: #27ae60; }
-        .footer-bottom { max-width: 1300px; margin: 40px auto 0; padding: 20px; border-top: 1px solid #f0f0f0; text-align: center; font-size: 12px; color: #999; letter-spacing: 1px; }
-
-        /* Responsividade para Celulares e Tablets */
+        /* Responsividade */
         @media (max-width: 768px) {
             .logo-container { width: 180px; height: 85px; }
             .slider-container { height: 350px; }
@@ -143,23 +131,24 @@
     <main>
         <section class="slider-container" id="site-banner-slider">
             <div class="slider" id="main-slider">
-                <div class="slide" style="background-image: url('https://lojamorenarosa.vtexassets.com/assets/vtex.file-manager-graphql/images/c1e9b4e2-0f6c-4982-9081-26eafa504bb4___c1e1dd355c182d09fb04d8eb918b42d3.png')">
+                <!-- Banners focados no estilo Streetwear / Juvenil / Beats -->
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=1400')">
                     <div class="slide-overlay">
-                        <h2 style="color: #333; font-weight: 400;"></h2>
-                        <p style="color: #333; font-weight: 400; text-shadow: none;"></p>
+                        <h2>Estilo Beats Urbano</h2>
+                        <p>A energia das ruas com o conforto que a nova geração exige.</p>
                     </div>
                 </div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1400')">
-                    <div class="slide-overlay"><h2>Alpino Chic</h2><p>Cortes alfaiataria com sofisticação moderna.</p></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1621452773781-0f992fd1f5cb?q=80&w=1400')">
+                    <div class="slide-overlay"><h2>Conexão Teen</h2><p>Peças exclusivas e cheias de atitude para o público infanto-juvenil.</p></div>
                 </div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1400')">
-                    <div class="slide-overlay"><h2>Tons de Inverno</h2><p>A elegância dos tons neutros e terrosos.</p></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1400')">
+                    <div class="slide-overlay"><h2>Looks que Conectam</h2><p>Combinações perfeitas para arrasar no dia a dia ou nas redes sociais.</p></div>
                 </div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1400')">
-                    <div class="slide-overlay"><h2>Vestidos Fluidos</h2><p>Movimento e exclusividade em estampas autorais.</p></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1571210862729-78a52d3779a2?q=80&w=1400')">
+                    <div class="slide-overlay"><h2>Expressão Livre</h2><p>Moda autêntica feita para quem dita o próprio ritmo.</p></div>
                 </div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1400')">
-                    <div class="slide-overlay"><h2>Preview Primavera</h2><p>Antecipe-se às tendências da temporada.</p></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1565439386782-981f3b135b85?q=80&w=1400')">
+                    <div class="slide-overlay"><h2>Preview Streetwear</h2><p>Garanta as novidades mais hypadas da estação.</p></div>
                 </div>
             </div>
             <div class="slider-dots" id="slider-dots"></div>
@@ -179,16 +168,14 @@
                 <p>Olá! Escolha com quem deseja falar:</p>
             </div>
             <div class="whatsapp-body">
-                <!-- Link Sandriny -->
-                <a href="https://api.whatsapp.com/send?phone=5581987720878&text=Olá%20Sandriny,%20gostaria de tirar uma dúvida sobre as peças da Amori!" target="_blank" class="whatsapp-contact">
+                <a href="https://api.whatsapp.com/send?phone=5581987720878&text=Olá%20Sandriny,%20gostaria de tirar uma dúvida sobre as roupas teens da Amori!" target="_blank" class="whatsapp-contact">
                     <div class="contact-avatar">SD</div>
                     <div class="contact-info">
                         <h5>Sandriny</h5>
                         <p>Disponível • Consultora de Moda</p>
                     </div>
                 </a>
-                <!-- Link Sabriny -->
-                <a href="https://api.whatsapp.com/send?phone=5581985325024&text=Olá%20Sabriny,%20gostaria de tirar uma dúvida sobre as peças da Amori!" target="_blank" class="whatsapp-contact">
+                <a href="https://api.whatsapp.com/send?phone=5581985325024&text=Olá%20Sabriny,%20gostaria de tirar uma dúvida sobre as roupas teens da Amori!" target="_blank" class="whatsapp-contact">
                     <div class="contact-avatar">SB</div>
                     <div class="contact-info">
                         <h5>Sabriny</h5>
@@ -223,7 +210,7 @@
             <div class="footer-col">
                 <h3>Segurança e Privacidade</h3>
                 <p style="font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 10px;">
-                    Seus dados de pagamento e navegação são 100% protegidos por criptografia de ponta.
+                    Seus dados de pagamento e navegação são 100% protegidos por segurança de ponta.
                 </p>
                 <div class="selos-seguranca">
                     <span class="selo selo-green">✓ SSL Blindado</span>
@@ -237,23 +224,22 @@
     </footer>
 
     <script>
-        // Banco de Dados Centralizado de Produtos
+        // Banco de Dados de Produtos atualizado para o segmento Teen / Infanto-Juvenil
         let produtos = [
-            { nome: "Vestido Midi Plissado Fluido", preco: 389.90, category: "Vestidos", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=500", categoria: "Vestidos" },
-            { nome: "Blusa Cachecoeur em Linho Pure", preco: 189.90, category: "Blusas", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=500", categoria: "Blusas" },
-            { nome: "Calça Pantalona Alfaiataria Cinto", preco: 279.90, category: "Calças", img: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=500", categoria: "Calças" },
-            { nome: "Vestido Estampado Seda Silky", preco: 459.00, category: "Vestidos", img: "https://images.unsplash.com/photo-1518622358385-8ea7d0794bf6?q=80&w=500", categoria: "Vestidos" },
-            { nome: "Camisa Ampla Algodão Egípcio", preco: 219.90, category: "Blusas", img: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=500", categoria: "Blusas" },
-            { nome: "Calça Jeans Slouchy Denim Soft", preco: 249.90, category: "Calças", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=500", categoria: "Calças" },
-            { nome: "Blusa Gola Alta Tricot Canelado", preco: 159.90, category: "Blusas", img: "https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?q=80&w=500", categoria: "Blusas" },
-            { nome: "Vestido Loveliness Off-White", preco: 199.90, precoAntigo: 399.90, category: "Outlet", img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=500", categoria: "Outlet" }
+            { nome: "Vestido Juvenil Canelado Urban Beats", preco: 159.90, categoria: "Vestidos", img: "https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=500" },
+            { nome: "Blusa Moletom Cropped Com Capuz Street", preco: 119.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=500" },
+            { nome: "Calça Cargo Jogger Sarja Over", preco: 179.90, categoria: "Calças", img: "https://images.unsplash.com/photo-1517462964-21fdcec3f25b?q=80&w=500" },
+            { nome: "Vestido Teen Jeans Soft Alças", preco: 189.00, categoria: "Vestidos", img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?q=80&w=500" },
+            { nome: "Camiseta Oversized Estampa Digital Beats", preco: 89.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1503443207922-dff7d543fd0e?q=80&w=500" },
+            { nome: "Calça Wide Leg Jeans Detonada", preco: 169.90, categoria: "Calças", img: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=500" },
+            { nome: "Blusa Canelada Gola Alta Básica Teen", preco: 69.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=500" },
+            { nome: "Vestido Loveliness Teen Off-White", preco: 119.90, precoAntigo: 239.90, categoria: "Outlet", img: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?q=80&w=500" }
         ];
 
         let usuarioAutenticado = false;
         let currentSlide = 0;
         const totalSlides = 5;
 
-        // Alternar a exibição da caixa de contatos do WhatsApp
         function toggleWhatsAppBox() {
             const box = document.getElementById('whatsappBox');
             box.classList.toggle('active');
@@ -295,12 +281,12 @@
             if (activeNav) activeNav.classList.add('active');
 
             if (page === 'novidades') {
-                titleElement.textContent = "Lançamentos da Coleção";
+                titleElement.textContent = "Lançamentos Teen & Beats";
                 renderProductGrid(produtos);
             } 
             else if (['vestidos', 'blusas', 'calcas', 'outlet'].includes(page)) {
                 let categoriaFiltro = page.charAt(0).toUpperCase() + page.slice(1);
-                titleElement.textContent = categoriaFiltro;
+                titleElement.textContent = categoriaFiltro + " Juvenil";
                 let filtrados = produtos.filter(p => p.categoria.toLowerCase() === page);
                 renderProductGrid(filtrados);
             } 
@@ -310,7 +296,7 @@
             }
             else if (page === 'marca') {
                 titleElement.textContent = "A Marca Amori";
-                contentElement.innerHTML = `<div class="text-page"><p>A <strong>Amori</strong> nasceu com o propósito de vestir a força e a leveza da mulher contemporânea.</p><h3>Nossa Essência</h3><p>Buscamos despertar em cada cliente o desejo de celebrar sua própria identidade.</p></div>`;
+                contentElement.innerHTML = `<div class="text-page"><p>A <strong>Amori</strong> nasceu com o propósito de vestir a atitude, o dinamismo e a autenticidade da geração infanto-juvenil e adolescente.</p><h3>Nossa Proposta</h3><p>Estilo urbano, confortável e cheio de energia para expressar a sua própria voz.</p></div>`;
             }
             else if (page === 'lojas') {
                 titleElement.textContent = "Nossas Lojas";
@@ -351,7 +337,7 @@
                     <div class="product-card">
                         <div class="product-img" style="background-image: url('${prod.img}')"></div>
                         <div class="product-info">
-                            <div class="product-tag">Amori Premium</div>
+                            <div class="product-tag">Amori Beats</div>
                             <div class="product-name">${prod.nome}</div>
                             <div class="product-price">${precoHtml}</div>
                             <div class="product-parcela">ou 6x de R$ ${parcelaFormatada} sem juros</div>
@@ -377,9 +363,9 @@
                 contentElement.innerHTML = `
                     <div class="admin-section">
                         <form onsubmit="handleCreateProduct(event)">
-                            <div class="form-group"><label>Nome Completo da Peça</label><input type="text" id="prod-nome" required></div>
+                            <div class="form-group"><label>Nome da Peça Juvenil</label><input type="text" id="prod-nome" required></div>
                             <div class="form-group"><label>Preço de Venda (R$)</label><input type="number" step="0.01" id="prod-preco" required></div>
-                            <div class="form-group"><label>URL da Foto da Imagem</label><input type="url" id="prod-img" required></div>
+                            <div class="form-group"><label>URL da Imagem</label><input type="url" id="prod-img" required></div>
                             <div class="form-group"><label>Categoria</label><select id="prod-categoria"><option value="Vestidos">Vestidos</option><option value="Blusas">Blusas</option><option value="Calças">Calças</option><option value="Outlet">Outlet</option></select></div>
                             <button type="submit" class="btn">Publicar na Loja</button>
                         </form>
