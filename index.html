@@ -21,7 +21,7 @@
         header { background: #fff; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; z-index: 1000; }
         .header-main { max-width: 1300px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
         
-        /* Ampliação da Área da Logomarca para Preencher o Espaço Lateral */
+        /* Logomarca Lateral */
         .logo-container { display: flex; align-items: center; justify-content: flex-start; cursor: pointer; width: 320px; height: 150px; }
         .logo-img { height: 100%; width: 100%; object-fit: contain; object-position: left center; }
         .logo-text { font-size: 24px; font-weight: 300; letter-spacing: 4px; color: #a38a75; font-family: Georgia, serif; }
@@ -75,6 +75,24 @@
         .btn:hover { background: #a38a75; }
         .logout-btn { background: #a84343; margin-top: 15px; }
 
+        /* Botão Flutuante e Janela do WhatsApp */
+        .whatsapp-wrapper { position: fixed; bottom: 30px; right: 30px; z-index: 9999; font-family: sans-serif; }
+        .whatsapp-btn { background-color: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer; transition: 0.3s; }
+        .whatsapp-btn:hover { transform: scale(1.1); }
+        .whatsapp-btn svg { width: 32px; height: 32px; fill: #fff; }
+        
+        .whatsapp-box { position: absolute; bottom: 75px; right: 0; width: 300px; background: #fff; border-radius: 10px; box-shadow: 0 5px 25px rgba(0,0,0,0.15); display: none; overflow: hidden; border: 1px solid #e2e2e2; }
+        .whatsapp-box.active { display: block; }
+        .whatsapp-header { background: #075e54; color: #fff; padding: 15px; text-align: center; }
+        .whatsapp-header h4 { font-size: 16px; margin-bottom: 4px; font-weight: 600; }
+        .whatsapp-header p { font-size: 12px; opacity: 0.9; }
+        .whatsapp-body { padding: 15px; display: flex; flex-direction: column; gap: 12px; background: #f4f1eb; }
+        .whatsapp-contact { display: flex; align-items: center; gap: 12px; background: #fff; padding: 12px; border-radius: 8px; text-decoration: none; color: #333; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: 0.3s; }
+        .whatsapp-contact:hover { background: #fdfdfd; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .contact-avatar { width: 36px; height: 36px; background: #a38a75; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; }
+        .contact-info h5 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+        .contact-info p { font-size: 11px; color: #777; }
+
         /* Rodapé */
         footer { background: #fff; border-top: 1px solid #eee; padding: 60px 0 20px; margin-top: 100px; }
         .footer-links { max-width: 1300px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
@@ -87,13 +105,14 @@
         .selo-green { color: #27ae60; border-color: #27ae60; }
         .footer-bottom { max-width: 1300px; margin: 40px auto 0; padding: 20px; border-top: 1px solid #f0f0f0; text-align: center; font-size: 12px; color: #999; letter-spacing: 1px; }
 
-        /* Responsividade para Telas Menores (Celulares e Tablets) */
+        /* Responsividade para Celulares e Tablets */
         @media (max-width: 768px) {
             .logo-container { width: 180px; height: 85px; }
             .slider-container { height: 350px; }
             .slide-overlay h2 { font-size: 28px; }
             .slide-overlay p { font-size: 13px; }
             .main-nav a { margin: 5px 10px; font-size: 11px; }
+            .whatsapp-wrapper { bottom: 20px; right: 20px; }
         }
     </style>
 </head>
@@ -103,7 +122,6 @@
 
     <header>
         <div class="header-main">
-            <!-- Container Ampliado para a Logomarca -->
             <div class="logo-container" onclick="showPage('novidades')">
                 <img src="logo.png" alt="Amori Boutique" class="logo-img" onerror="this.style.display='none'; document.getElementById('alt-logo-text').style.display='block';">
                 <span id="alt-logo-text" class="logo-text" style="display:none;">AMORI</span>
@@ -153,6 +171,39 @@
         </section>
     </main>
 
+    <!-- Componente de Atendimento do WhatsApp -->
+    <div class="whatsapp-wrapper">
+        <div class="whatsapp-box" id="whatsappBox">
+            <div class="whatsapp-header">
+                <h4>Atendimento Amori</h4>
+                <p>Olá! Escolha com quem deseja falar:</p>
+            </div>
+            <div class="whatsapp-body">
+                <!-- Link Sandriny -->
+                <a href="https://api.whatsapp.com/send?phone=5581987720878&text=Olá%20Sandriny,%20gostaria de tirar uma dúvida sobre as peças da Amori!" target="_blank" class="whatsapp-contact">
+                    <div class="contact-avatar">SD</div>
+                    <div class="contact-info">
+                        <h5>Sandriny</h5>
+                        <p>Disponível • Consultora de Moda</p>
+                    </div>
+                </a>
+                <!-- Link Sabriny -->
+                <a href="https://api.whatsapp.com/send?phone=5581985325024&text=Olá%20Sabriny,%20gostaria de tirar uma dúvida sobre as peças da Amori!" target="_blank" class="whatsapp-contact">
+                    <div class="contact-avatar">SB</div>
+                    <div class="contact-info">
+                        <h5>Sabriny</h5>
+                        <p>Disponível • Consultora de Moda</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="whatsapp-btn" onclick="toggleWhatsAppBox()">
+            <svg viewBox="0 0 32 32">
+                <path d="M16 2a13 13 0 0 0-11.27 19.49L3 29l7.73-2A13 13 0 1 0 16 2zm0 24a11 11 0 0 1-5.61-1.54l-.4-.24-4.57 1.2 1.22-4.46-.26-.41A11 11 0 1 1 16 26zm6.36-8.6c-.35-.18-2.07-1-2.39-1.12s-.55-.18-.78.15-1 1.21-1.22 1.44-.43.26-.78.08a9.81 9.81 0 0 1-2.88-1.78 10.83 10.83 0 0 1-2-2.48c-.22-.38 0-.58.16-.76s.35-.41.52-.62a2.33 2.33 0 0 0 .35-.58.64.64 0 0 0 0-.58c-.09-.18-.78-1.88-1.07-2.57s-.57-.58-.78-.59h-.67a1.29 1.29 0 0 0-.93.43 3.93 3.93 0 0 0-1.22 2.92 6.84 6.84 0 0 0 1.43 3.64 15.63 15.63 0 0 0 6 5.31c1.32.53 2.63.59 3.59.45a3 3 0 0 0 2-1.39 2.45 2.45 0 0 0 .17-1.39c-.09-.15-.33-.24-.68-.42z"/>
+            </svg>
+        </div>
+    </div>
+
     <footer>
         <div class="footer-links">
             <div class="footer-col">
@@ -172,7 +223,7 @@
             <div class="footer-col">
                 <h3>Segurança e Privacidade</h3>
                 <p style="font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 10px;">
-                    Seus dados de pagamento e navigation são 100% protegidos por criptografia de ponta.
+                    Seus dados de pagamento e navegação são 100% protegidos por criptografia de ponta.
                 </p>
                 <div class="selos-seguranca">
                     <span class="selo selo-green">✓ SSL Blindado</span>
@@ -201,6 +252,12 @@
         let usuarioAutenticado = false;
         let currentSlide = 0;
         const totalSlides = 5;
+
+        // Alternar a exibição da caixa de contatos do WhatsApp
+        function toggleWhatsAppBox() {
+            const box = document.getElementById('whatsappBox');
+            box.classList.toggle('active');
+        }
 
         function setupSlider() {
             const dotsContainer = document.getElementById('slider-dots');
@@ -253,9 +310,8 @@
             }
             else if (page === 'marca') {
                 titleElement.textContent = "A Marca Amori";
-                contentElement.innerHTML = `<div class="text-page"><p>A <strong>Amori</strong> nasceu em 2026 com o propósito de vestir a força e a leveza da mulher contemporânea.</p><h3>Nossa Essência</h3><p>Buscamos despertar em cada cliente o desejo de celebrar sua própria identidade.</p></div>`;
+                contentElement.innerHTML = `<div class="text-page"><p>A <strong>Amori</strong> nasceu com o propósito de vestir a força e a leveza da mulher contemporânea.</p><h3>Nossa Essência</h3><p>Buscamos despertar em cada cliente o desejo de celebrar sua própria identidade.</p></div>`;
             }
-            // Endereço e Nome da Loja Atualizados
             else if (page === 'lojas') {
                 titleElement.textContent = "Nossas Lojas";
                 contentElement.innerHTML = `
