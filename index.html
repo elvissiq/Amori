@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amori | Boutique Feminina Oficial</title>
+    
+    <!-- Configuração do Favicon (Ícone na Guia do Navegador) -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
     <style>
         /* Reset e Base */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
@@ -89,7 +93,7 @@
             .slide-overlay h2 { font-size: 28px; }
             .slide-overlay p { font-size: 13px; }
             .main-nav a { margin: 5px 10px; font-size: 11px; }
-            .logo-img { height: 60px; } /* Ajuste equilibrado para telas de celular */
+            .logo-img { height: 60px; }
         }
     </style>
 </head>
@@ -99,7 +103,6 @@
 
     <header>
         <div class="header-main">
-            <!-- Chamada da Imagem da Logo Oficial Ampliada -->
             <div class="logo-container" onclick="showPage('novidades')">
                 <img src="logo.png" alt="Amori Boutique" class="logo-img" onerror="this.style.display='none'; document.getElementById('alt-logo-text').style.display='block';">
                 <span id="alt-logo-text" class="logo-text" style="display:none;">AMORI</span>
@@ -118,11 +121,9 @@
         </div>
     </header>
 
-    <!-- CONTAINER DINÂMICO -->
     <main>
         <section class="slider-container" id="site-banner-slider">
             <div class="slider" id="main-slider">
-                <!-- Primeiro Slide com o Banner Solicitado -->
                 <div class="slide" style="background-image: url('https://lojamorenarosa.vtexassets.com/assets/vtex.file-manager-graphql/images/c1e9b4e2-0f6c-4982-9081-26eafa504bb4___c1e1dd355c182d09fb04d8eb918b42d3.png')">
                     <div class="slide-overlay">
                         <h2 style="color: #333; font-weight: 400;"></h2>
@@ -184,16 +185,15 @@
     </footer>
 
     <script>
-        // Banco de Dados Centralizado de Produtos
         let produtos = [
-            { nome: "Vestido Midi Plissado Fluido", preco: 389.90, categoria: "Vestidos", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=500" },
-            { nome: "Blusa Cachecoeur em Linho Pure", preco: 189.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=500" },
-            { nome: "Calça Pantalona Alfaiataria Cinto", preco: 279.90, categoria: "Calças", img: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=500" },
-            { nome: "Vestido Estampado Seda Silky", preco: 459.00, categoria: "Vestidos", img: "https://images.unsplash.com/photo-1518622358385-8ea7d0794bf6?q=80&w=500" },
-            { nome: "Camisa Ampla Algodão Egípcio", preco: 219.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=500" },
-            { nome: "Calça Jeans Slouchy Denim Soft", preco: 249.90, categoria: "Calças", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=500" },
-            { nome: "Blusa Gola Alta Tricot Canelado", preco: 159.90, categoria: "Blusas", img: "https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?q=80&w=500" },
-            { nome: "Vestido Loveliness Off-White", preco: 199.90, precoAntigo: 399.90, categoria: "Outlet", img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=500" }
+            { nome: "Vestido Midi Plissado Fluido", preco: 389.90, category: "Vestidos", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=500", categoria: "Vestidos" },
+            { nome: "Blusa Cachecoeur em Linho Pure", preco: 189.90, category: "Blusas", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=500", categoria: "Blusas" },
+            { nome: "Calça Pantalona Alfaiataria Cinto", preco: 279.90, category: "Calças", img: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=500", categoria: "Calças" },
+            { nome: "Vestido Estampado Seda Silky", preco: 459.00, category: "Vestidos", img: "https://images.unsplash.com/photo-1518622358385-8ea7d0794bf6?q=80&w=500", categoria: "Vestidos" },
+            { nome: "Camisa Ampla Algodão Egípcio", preco: 219.90, category: "Blusas", img: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=500", categoria: "Blusas" },
+            { nome: "Calça Jeans Slouchy Denim Soft", preco: 249.90, category: "Calças", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=500", categoria: "Calças" },
+            { nome: "Blusa Gola Alta Tricot Canelado", preco: 159.90, category: "Blusas", img: "https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?q=80&w=500", categoria: "Blusas" },
+            { nome: "Vestido Loveliness Off-White", preco: 199.90, precoAntigo: 399.90, category: "Outlet", img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=500", categoria: "Outlet" }
         ];
 
         let usuarioAutenticado = false;
